@@ -1,0 +1,24 @@
+<odoo>
+	<data>
+		<template id="product_quantity" inherit_id="website_sale.products_item" name="Your Quantity">
+			<xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+				<div class="css_quantity input-group" contenteditable="false" >
+				<!--               + sign.................... -->
+					<div class="input-group-prepend">
+						<a t-attf-href="#" class="btn btn-secondary js_add_cart_json" aria-label="Remove one" title="Remove one">
+						<i class="fa fa-minus"/>
+						</a>
+					</div>
+					<!--              center  -->
+					<input type="text" class="form-control quantity" active="False" data-min="1" name="add_qty" t-att-value="add_qty or 1" />
+					<!--              - sign.............................  -->
+					<div class="input-group-append">
+						<a t-attf-href="#" class="btn btn-secondary float_left js_add_cart_json" aria-label="Add one" title="Add one">
+						<i class="fa fa-plus"/>
+						</a>
+					</div>
+				</div>
+			</xpath>
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <template id="product_quantities">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/product_quantity/static/src/css/quantity.css"/>
+        </xpath>
+    </template>
+</odoo>

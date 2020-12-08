@@ -1,0 +1,85 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="shop_by_brand_list">
+      <field name="name">shop_by_brand_list</field>
+      <field name="model">shop.brand</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="brand_name"/>
+          <field name="brand_description"/>
+
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="shop_by_brand_form">
+      <field name="name">shop_by_brand_form</field>
+      <field name="model">shop.brand</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_left">
+                        <group>
+                            <field name="brand_name"/>
+                            <field name="brand_description"/>
+                             <field name="shop_by_brand" />
+<!--                            <field name="product_ids"/>-->
+                        </group>
+                    </div>
+                </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="shop_by_brand_action_window">
+      <field name="name">Shop By Brand</field>
+      <field name="res_model">shop.brand</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face"> Create a new Brand </p>
+      </field>
+    </record>
+
+    <menuitem name="Shop By Brand" id="shop_brand_menu_one"  />
+<!--    sub menu item    -->
+    <menuitem name="Brands" id="shop_brand_menu_2" parent="website_sale.menu_product_settings" action="shop_by_brand_action_window"/>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="shop_by_brand.action_server">
+      <field name="name">shop_by_brand server</field>
+      <field name="model_id" ref="model_shop_by_brand_shop_by_brand"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="shop_by_brand" id="shop_by_brand.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="shop_by_brand.menu_1" parent="shop_by_brand.menu_root"/>
+    <menuitem name="Menu 2" id="shop_by_brand.menu_2" parent="shop_by_brand.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="shop_by_brand.menu_1_list" parent="shop_by_brand.menu_1"
+              action="shop_by_brand.action_window"/>
+    <menuitem name="Server to list" id="shop_by_brand" parent="shop_by_brand.menu_2"
+              action="shop_by_brand.action_server"/>
+-->
+  </data>
+</odoo>

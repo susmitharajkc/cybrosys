@@ -1,0 +1,7 @@
+<!-- <template id="search_brand" name="search brand">-->
+<!--            <form action="'/shop-by-brand'">-->
+<!--                <t t-call="website.website_search_box">-->
+<!--                    <t t-set="action" t-value="'/shop-by-brand'"/>-->
+<!--                </t>-->
+<!--            </form>-->
+<!--        </template>-->

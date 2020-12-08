@@ -1,0 +1,105 @@
+<odoo>
+    <data>
+
+
+        <template id="shop_by">
+            <t t-call="website.layout">
+<!--                <form action="/shop/brand/" method="post" class="card oe_product_cart" itemscope="itemscope" itemtype="http://schema.org/Product">-->
+                 <div class="products_pager form-inline justify-content-center py-3">
+                  <t t-call="website.website_search_box">
+                      <t t-set="action" t-value="'/shop-by-brand'"/>
+                  </t>
+
+                </div>
+                <div class="col-lg-12 row">
+                    <div t-if="enable_groups" id="div_brand_groups" class="col-lg-3"/>
+                    <div id="main_div" t-attf-class="row #{'col-lg-9' if enable_group else 'col-lg-12'}">
+                     <t t-foreach="category" t-as="cat">
+                         <div class="col-3" style="width:250px !important;height: 250px !important;">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                             <a t-att-href="keep('/shop/brand/' + slug(cat),  brand=0 )">
+                                 <span t-field="cat.image_1920"
+                             t-options="{'widget': 'image', 'preview_image': 'image_256', 'class': 'w-10px h-10px o_object_fit_cover rounded'}"
+                             class="d-flex h-100 justify-content-center align-items-center"
+                           style="width: 250px; height: 250px; border-radius: 20px;"/>
+
+                                <div class="textr" style="font-size: 30px padding-left:50px;">
+                                    <span t-esc="cat.brand_name"/>
+                                </div>
+<!--                                 <div class="text-center" style="font-size: 15px">-->
+<!--                                    <span t-esc="cat.brand_description"/>-->
+<!--                                </div>-->
+                                <br/>
+                                <br/>
+
+                             </a>
+
+
+                        </div>
+
+
+                     </t>
+                    </div>
+                </div>
+<!--               </div>-->
+
+<!--                <div style="margin-top: 100px !important;" class="product_pager from-inline justify-content-center mt-3">-->
+                <div class="products_pager form-inline justify-content-center py-3">
+
+                    <t t-call="website.pager">
+                        <t t-set="_classes" t-valuef="mt-2 ml-md-2"/>
+                    </t>
+                </div>
+<!--                </form>-->
+  </t>
+    </template>
+
+<!--    <template id="search_brand" name="search brand">-->
+<!--            <form action="/shop-by-brand">-->
+<!--                <t t-call="website.website_search_box">-->
+<!--                    <t t-set="action" t-value="'/shop-by-brand'"/>-->
+<!--                </t>-->
+<!--            </form>-->
+<!--    </template>-->
+<!--    <template id="brand_groups" inherit_id="website_sale.brand" active="false" customize_show="True" name="Brand Groups">-->
+<!--        <t t-call="website.layout">-->
+<!--            <xpath expr="//div[@id='div_brand_groups']" position="before">-->
+<!--                <t t-set="enable_groups" t-value="True"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//div[@id='div_brand_groups']" position="inside">-->
+<!--                <button type="button" class="btn btn-link d-lg-none" data-target="#wsale_products_categories_collapse"-->
+<!--                            data-toggle="collapse">-->
+<!--                    Show Groups-->
+
+<!--                </button>-->
+<!--                <div class="collapse d-lg-block" id="#wsale_products_categories_collapse">-->
+<!--                    <ul class="nav nav-pills flex-column mb-2">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="/shop-by-brand" t-att-href="nav-link #{'' if category else 'active'} o_not_editable">-->
+<!--                                All Brands-->
+<!--                            </a>-->
+
+<!--                        </li>-->
+<!--                        <t t-foreach="groups" t-as="grp">-->
+<!--                            <li class="nav-item">-->
+<!--                                <a t-att-href="'/brands/category/%s' % slug(grp)"-->
+<!--                                   t-attr-class="nav-link #{'active' if grp.id == category.id else ''} o_not_editable">-->
+<!--                                    <span t-field="grp.name"/>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </t>-->
+
+<!--                    </ul>-->
+
+<!--                </div>-->
+
+<!--            </xpath>-->
+
+
+<!--        </t>-->
+<!--    </template>-->
+
+
+    </data>
+</odoo>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="product_stock_pos_template" xml:space="preserve">
+    <t t-name="ProductItem" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('product-name')]" position="after">
+<!--            <span class="qty_available">-->
+            <t t-if="(props.product.id)">
+<!--            <t t-if="props.product">-->
+
+                <span class="stock">
+                     Stock
+                    <t t-esc="props.product.qty_available"/>
+                    units
+                </span>
+<!--            </span>-->
+<!--            </t>-->
+            </t>
+        </xpath>
+</t>
+</templates>

@@ -1,0 +1,12 @@
+.pos .product .stock {
+    position: absolute;
+    top: 0px;
+    right: 95px;
+    vertical-align: top;
+    color: white;
+    line-height: 13px;
+    background: red;
+    padding-left:50px;
+
+    border-radius: 2px;
+}
